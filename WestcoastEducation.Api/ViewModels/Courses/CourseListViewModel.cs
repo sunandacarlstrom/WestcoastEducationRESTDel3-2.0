@@ -1,3 +1,5 @@
+using WestcoastEducation.Api.Models;
+
 namespace WestcoastEducation.Api.ViewModels;
 public class CourseListViewModel
 {

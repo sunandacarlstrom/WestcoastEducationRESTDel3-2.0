@@ -6,11 +6,12 @@ public class StudentModel
 {
     [Key]
     public int Id { get; set; }
-    public int? CourseId { get; set; }
     public string Name { get; set; }
     public string Email { get; set; }
 
-    // The One-Side (composition)
-    [ForeignKey("CourseId")]
-    public CourseModel Course { get; set; }
+    //Navigation... 
+
+    // The Many-Side (aggregation)
+    // En student kan vara anmäld till flera kurser samtidigt... 
+    public ICollection<StudentModelCourseModel> StudentCourses { get; set; }
 }

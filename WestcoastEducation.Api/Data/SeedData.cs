@@ -135,4 +135,22 @@ public static class SeedData
             await context.SaveChangesAsync();
         }
     }
+    public static async Task LoadStudentCoursesData(WestcoastEducationContext context)
+    {
+        var options = new JsonSerializerOptions
+        {
+            PropertyNameCaseInsensitive = true
+        };
+
+        if (context.StudentCourses.Any()) return;
+
+        var json = System.IO.File.ReadAllText("Data/json/studentcourses.json");
+        var studentcourses = JsonSerializer.Deserialize<List<StudentModelCourseModel>>(json, options);
+
+        if (studentcourses is not null && studentcourses.Count > 0)
+        {
+            await context.StudentCourses.AddRangeAsync(studentcourses);
+            await context.SaveChangesAsync();
+        }
+    }
 }

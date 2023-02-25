@@ -2,38 +2,14 @@
 
 #nullable disable
 
-namespace WestcoastEducationRESTDel2.api.Data.Migrations
+namespace WestcoastEducation.Api.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class AddedRelations : Migration
+    public partial class AddedRelationOneToMany : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AlterColumn<int>(
-                name: "TeacherId",
-                table: "TeacherSkills",
-                type: "INTEGER",
-                nullable: true,
-                oldClrType: typeof(int),
-                oldType: "INTEGER");
-
-            migrationBuilder.AlterColumn<int>(
-                name: "CourseId",
-                table: "Students",
-                type: "INTEGER",
-                nullable: true,
-                oldClrType: typeof(int),
-                oldType: "INTEGER");
-
-            migrationBuilder.AlterColumn<int>(
-                name: "TeacherId",
-                table: "Courses",
-                type: "INTEGER",
-                nullable: true,
-                oldClrType: typeof(int),
-                oldType: "INTEGER");
-
             migrationBuilder.CreateIndex(
                 name: "IX_TeacherSkills_TeacherId",
                 table: "TeacherSkills",
@@ -97,36 +73,6 @@ namespace WestcoastEducationRESTDel2.api.Data.Migrations
             migrationBuilder.DropIndex(
                 name: "IX_Courses_TeacherId",
                 table: "Courses");
-
-            migrationBuilder.AlterColumn<int>(
-                name: "TeacherId",
-                table: "TeacherSkills",
-                type: "INTEGER",
-                nullable: false,
-                defaultValue: 0,
-                oldClrType: typeof(int),
-                oldType: "INTEGER",
-                oldNullable: true);
-
-            migrationBuilder.AlterColumn<int>(
-                name: "CourseId",
-                table: "Students",
-                type: "INTEGER",
-                nullable: false,
-                defaultValue: 0,
-                oldClrType: typeof(int),
-                oldType: "INTEGER",
-                oldNullable: true);
-
-            migrationBuilder.AlterColumn<int>(
-                name: "TeacherId",
-                table: "Courses",
-                type: "INTEGER",
-                nullable: false,
-                defaultValue: 0,
-                oldClrType: typeof(int),
-                oldType: "INTEGER",
-                oldNullable: true);
         }
     }
 }

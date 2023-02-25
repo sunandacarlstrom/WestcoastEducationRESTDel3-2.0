@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WestcoastEducation.Api.Data;
 
@@ -10,9 +11,11 @@ using WestcoastEducation.Api.Data;
 namespace WestcoastEducation.Api.Data.Migrations
 {
     [DbContext(typeof(WestcoastEducationContext))]
-    partial class WestcoastEducationContextModelSnapshot : ModelSnapshot
+    [Migration("20230224141753_AddedManyStudentToManyCourses")]
+    partial class AddedManyStudentToManyCourses
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.1");
@@ -203,6 +206,9 @@ namespace WestcoastEducation.Api.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<int?>("CourseId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Email")
                         .HasColumnType("TEXT");
 
@@ -229,7 +235,7 @@ namespace WestcoastEducation.Api.Data.Migrations
 
                     b.HasIndex("StudentId");
 
-                    b.ToTable("StudentCourses");
+                    b.ToTable("StudentModelCourseModel");
                 });
 
             modelBuilder.Entity("WestcoastEducation.Api.Models.TeacherModel", b =>

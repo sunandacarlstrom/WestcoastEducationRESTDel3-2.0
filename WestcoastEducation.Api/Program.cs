@@ -95,6 +95,7 @@ try
     await SeedData.LoadTeacherSkillsData(context);
     await SeedData.LoadCourseData(context);
     await SeedData.LoadStudentData(context);
+    await SeedData.LoadStudentCoursesData(context);
 }
 catch (Exception ex)
 {

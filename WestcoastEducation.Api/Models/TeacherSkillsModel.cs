@@ -9,7 +9,9 @@ public class TeacherSkillsModel
     public int? TeacherId { get; set; }
     public string Skill { get; set; }
 
-    // The One-Side (composition)
-    [ForeignKey("TeacherId")]
-    public TeacherModel Teacher { get; set; }
+    //Navigation... 
+
+    // The Many-Side (aggregation)
+    // Ett kunskapsområde kan vara kopplat till flera lärare... 
+    public ICollection<TeacherModel> Teachers { get; set; }
 }
